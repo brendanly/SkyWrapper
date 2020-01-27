@@ -1,9 +1,7 @@
-![GitHub release](https://img.shields.io/badge/version-1.0-blue)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/)
-
 ![SkyWrapper](https://raw.githubusercontent.com/omer-ts/Images/master/skywrapper.png)
 
-
+![GitHub release](https://img.shields.io/badge/version-1.0-blue)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/)
 ## Overview
 
 SkyWrapper is an open-source project which analyzes behaviors of temporary tokens created in a given AWS account.
@@ -45,7 +43,7 @@ For running this script, you will need at least the following permissions policy
             ],
             "Resource": [
                 "arn:aws:s3:::{cloudtrail_bucket_name}/*",
-                "arn:aws:s3:::{cloudtrail_bucket_name}"
+                "arn:aws:s3:::{cloudtrail_bucket_name}
             ]
         },
         {
