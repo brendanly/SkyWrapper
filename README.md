@@ -1,5 +1,5 @@
-[![GitHub release][release-img]][release]
-[![License][license-img]][license]
+![GitHub release](https://img.shields.io/badge/version-1.0-blue)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/)
 
 ![SkyWrapper](https://raw.githubusercontent.com/omer-ts/Images/master/skywrapper.png)
 
