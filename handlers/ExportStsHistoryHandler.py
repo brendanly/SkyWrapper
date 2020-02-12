@@ -3,6 +3,7 @@ from handlers.ConfigHandler import ConfigHandler
 from utilities.FileUtilities import get_project_root
 from utilities.StsTreeStructureUtilities import count_node_children_and_live_nodes
 import os
+from datetime import datetime
 from structures.StsToken import MANUAL_TOKEN_SOURCE, EC2_TOKEN_SOURCE, LAMBDA_TOKEN_SOURCE, OTHER_TOKEN_SOURCE
 from utilities.ExcelUtilities import *
 from operator import methodcaller, attrgetter
@@ -66,7 +67,7 @@ class ExportStsHistoryHandler(object):
         self.write_row(tokens_sheet, row_index, TOKENS_SHEET_COLUMNS.index("Role Name"), token.role_name)
         self.write_row(tokens_sheet, row_index, TOKENS_SHEET_COLUMNS.index("Role Session Name"), token.role_session_name)
         self.write_row(tokens_sheet, row_index, TOKENS_SHEET_COLUMNS.index("Permissions Summary"), token.get_token_privileged_information())
-        self.write_row(tokens_sheet, row_index, TOKENS_SHEET_COLUMNS.index("Token TTL"), "{0} minutes".format((token.expiration_time - token.event_time).seconds // 60))
+        self.write_row(tokens_sheet, row_index, TOKENS_SHEET_COLUMNS.index("Token TTL"), "{0} minutes".format((token.expiration_time - datetime.utcnow()).seconds // 60))
         self.write_row(tokens_sheet, row_index, TOKENS_SHEET_COLUMNS.index("Event Time"), token.event_time.strftime("%Y-%m-%dT%H:%M:%SZ"))
         self.write_row(tokens_sheet, row_index, TOKENS_SHEET_COLUMNS.index("Expiration Time"), token.expiration_time.strftime("%Y-%m-%dT%H:%M:%SZ"))
         self.write_row(tokens_sheet, row_index, TOKENS_SHEET_COLUMNS.index("Event Name"), token.event_name)

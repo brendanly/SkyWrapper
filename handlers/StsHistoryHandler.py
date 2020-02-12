@@ -69,7 +69,7 @@ class StsHistoryHandler(object):
 
     def flag_suspicious_tokens(self):
         self.__logger.info("[+] Examining the scraped tokens")
-        self.__logger.info(" Did the refreshing temporary tokens process has happened in this account: {status}".format(status=(len(self.root_temporary_tokens) > 0)))
+        self.__logger.info("Has there been a token refresh process in the account? - {status}".format(status=(len(self.root_temporary_tokens) > 0)))
         # EC2 STS tokens which used for persistent
         ec2_refreshed_keys_counter = 0
 

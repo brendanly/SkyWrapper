@@ -223,7 +223,7 @@ class StsToken(object):
         return rate
 
     def is_expired(self):
-        return self.expired
+        return self.expiration_time < datetime.utcnow()
 
     def __repr__(self):
         return str(self.__dict__)
