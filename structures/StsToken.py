@@ -133,6 +133,10 @@ class StsToken(object):
             token_source_string = "Lambda: {lambda_name}".format(lambda_name=self.role_session_name)
         elif self.suspicious_token[EC2_ASIA_REFRESHED_MANUAL_FLAG] is True:
             root_parent_node = self.get_root_parent_node()
+            if root_parent_node is None:
+                # In case the current token is the root token, then the root_parent_node points to None.
+                # Therefore, we set the root_parent_token to point on self.
+                root_parent_node = self
             principal = root_parent_node.athena_row.data["useridentity"].object["principalid"].split(":")
             ec2_machine_id = "N/A" if len(principal) != 2 else principal[1]
             token_source_string = "EC2: {ec2_machine_id}".format(ec2_machine_id=ec2_machine_id)

@@ -100,7 +100,7 @@ class StsHistoryHandler(object):
                 sts_refreshed_keys_counter += 1
                 self.suspicious_tokens.append(live_temporary_token)
         self.__logger.info("The number of live refreshed tokens: {0}".format(
-            sts_refreshed_keys_counter))
+            sts_refreshed_keys_counter + live_ec2_refreshed_keys_counter))
 
     def flag_token_children(self, node, flag_reason):
         """
